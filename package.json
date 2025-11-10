@@ -1,0 +1,23 @@
+{
+  "name": "celestia-bracket-rush",
+  "version": "1.0.0",
+  "description": "Privacy-preserving bracket prediction game with Fully Homomorphic Encryption",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js --network sepolia",
+    "test": "hardhat test"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-viem": "^2.0.0",
+    "@fhevm/solidity": "^0.9.1",
+    "@fhevm/hardhat-plugin": "0.3.0-1",
+    "@fhevm/mock-utils": "0.3.0-1",
+    "hardhat": "^2.19.4"
+  }
+}
