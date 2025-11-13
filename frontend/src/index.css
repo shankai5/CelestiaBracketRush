@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pixel-style Blockchain Gaming Design System - Red/Pink Gradient Theme */
+
+@layer base {
+  :root {
+    /* Light mode - Cream & Pixel Gaming Colors */
+    --background: 30 40% 97%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Primary - Vibrant Red */
+    --primary: 348 100% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Hot Pink */
+    --secondary: 340 100% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted - Light Coral */
+    --muted: 10 60% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    /* Accent - Neon Pink */
+    --accent: 330 100% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 10 40% 85%;
+    --input: 10 40% 85%;
+    --ring: 348 100% 55%;
+
+    --radius: 0rem;
+
+    /* Custom Pixel Gaming Colors */
+    --pixel-red: 348 100% 55%;
+    --pixel-pink: 340 100% 65%;
+    --pixel-hot-pink: 330 100% 70%;
+    --pixel-coral: 10 80% 75%;
+    --pixel-cream: 30 40% 97%;
+    --pixel-shadow: 0 0% 20%;
+
+    /* Gradients */
+    --gradient-gaming: linear-gradient(135deg, hsl(348 100% 55%), hsl(340 100% 65%), hsl(330 100% 70%));
+    --gradient-subtle: linear-gradient(180deg, hsl(30 40% 97%), hsl(10 60% 95%));
+    --gradient-glow: radial-gradient(circle, hsl(348 100% 55% / 0.2), transparent);
+
+    /* Pixel Effects */
+    --scanline: repeating-linear-gradient(0deg, transparent, transparent 2px, hsl(0 0% 0% / 0.03) 2px, hsl(0 0% 0% / 0.03) 4px);
+    
+    /* Shadows - Pixel Style */
+    --shadow-pixel: 4px 4px 0px hsl(348 100% 45%);
+    --shadow-pixel-hover: 6px 6px 0px hsl(340 100% 55%);
+    --shadow-glow: 0 0 20px hsl(348 100% 55% / 0.5);
+  }
+
+  .dark {
+    --background: 0 0% 12%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 348 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 340 100% 70%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 330 100% 75%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 348 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Press Start 2P', monospace, sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+    position: relative;
+  }
+
+  /* Scanline effect overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--scanline);
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Press Start 2P', monospace, sans-serif;
+    line-height: 1.4;
+  }
+
+  /* Pixel button styles */
+  .pixel-button {
+    @apply relative inline-block px-6 py-3 font-bold uppercase tracking-wide;
+    @apply bg-primary text-primary-foreground;
+    @apply transition-all duration-100;
+    box-shadow: var(--shadow-pixel);
+    border: 3px solid hsl(var(--foreground));
+  }
+
+  .pixel-button:hover {
+    @apply translate-x-[2px] translate-y-[2px];
+    box-shadow: var(--shadow-pixel-hover);
+  }
+
+  .pixel-button:active {
+    @apply translate-x-[4px] translate-y-[4px];
+    box-shadow: 2px 2px 0px hsl(348 100% 40%);
+  }
+
+  /* Pixel card styles */
+  .pixel-card {
+    @apply relative bg-card border-4 border-foreground;
+    box-shadow: 8px 8px 0px hsl(var(--pixel-shadow));
+    transition: all 0.2s;
+  }
+
+  .pixel-card:hover {
+    @apply translate-x-[-2px] translate-y-[-2px];
+    box-shadow: 12px 12px 0px hsl(var(--pixel-shadow));
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-gaming);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow effect */
+  .pixel-glow {
+    position: relative;
+  }
+
+  .pixel-glow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: var(--gradient-glow);
+    filter: blur(20px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .pixel-glow:hover::after {
+    opacity: 1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
